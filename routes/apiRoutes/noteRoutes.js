@@ -15,9 +15,9 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
     let notes = lodeNote();
     console.log(notes);
-    createNewNote(req.body, notes)
-        .then((note) => res.json(note))
-        .catch((error) => res.status(500).json(error));
+    createNewNote(req.body, notes);
+    notes = lodeNote();
+    res.json(notes);
 });
 
 router.delete("/notes/:id", (req, res) => {
